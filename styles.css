@@ -266,3 +266,6 @@ textarea{resize:none!important}
 .image-picker-action{flex:0 0 auto;padding:8px 10px;border:1px solid #c8d8c5;border-radius:5px;background:#fff;color:#315744;font-size:10px;font-weight:700}
 .photo-picker-hint{margin:-3px 0 2px;color:#738277;font-size:10px;line-height:1.55}
 @media(max-width:420px){.photo-field .image-picker{gap:9px;padding:10px}.image-picker-icon{flex-basis:36px;width:36px;height:36px}.image-picker-copy b{font-size:11px}.image-picker-copy small{font-size:9px}.image-picker-action{font-size:9px;padding:7px 8px}}
+
+/* Corrige el marcador de ingredientes: que ocupe su propio espacio */
+.ingredients-block li:before{position:static!important;inset:auto!important;display:inline-block!important;flex:0 0 7px!important;width:7px!important;height:7px!important;margin:6px 3px 0 0!important;align-self:flex-start!important}
