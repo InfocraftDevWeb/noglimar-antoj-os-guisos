@@ -1,0 +1,19 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "menus": {
+      ".read": true,
+      "$menuId": {
+        ".write": "auth != null && auth.uid === 'Wl0RHREv7AW7yrWC15xCGMm9YwL2'",
+        ".validate": "!newData.exists() || ((newData.numChildren() === 10 || newData.numChildren() === 11) && newData.hasChildren(['name','meal','price','ingredients','imageUrl','description','createdAt','createdBy','updatedAt','updatedBy']) && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 90 && newData.child('meal').isString() && (newData.child('meal').val() === 'Desayuno' || newData.child('meal').val() === 'Almuerzo' || newData.child('meal').val() === 'Cena') && newData.child('price').isNumber() && newData.child('price').val() > 0 && newData.child('price').val() <= 10000000 && newData.child('ingredients').numChildren() > 0 && newData.child('ingredients').numChildren() <= 30 && newData.child('imageUrl').isString() && newData.child('imageUrl').val().length > 0 && newData.child('imageUrl').val().length <= 2048 && newData.child('description').isString() && newData.child('description').val().length <= 500 && newData.child('createdAt').isNumber() && newData.child('updatedAt').isNumber() && newData.child('createdBy').val() === 'Wl0RHREv7AW7yrWC15xCGMm9YwL2' && newData.child('updatedBy').val() === 'Wl0RHREv7AW7yrWC15xCGMm9YwL2')",
+        "galleryUrls": {
+          ".validate": "newData.numChildren() <= 5",
+          "$index": {
+            ".validate": "$index.matches(/^(0|[1-9][0-9]*)$/) && newData.isString() && newData.val().length > 0 && newData.val().length <= 2048"
+          }
+        }
+      }
+    }
+  }
+}
