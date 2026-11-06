@@ -234,3 +234,35 @@ textarea{resize:none!important}
 @media(max-width:700px){.product-session-hero .product-main-photo{height:280px}.product-photo-thumb{flex-basis:68px;width:68px;height:60px}}
 @media(max-width:420px){.product-session-hero .product-main-photo{height:245px}.photo-preview{grid-template-columns:repeat(2,minmax(0,1fr))}.image-preview-item>img{height:115px}.image-preview-actions button{font-size:8px;padding:6px}}
 @media(prefers-reduced-motion:reduce){.product-session-hero .product-main-photo,.product-photo-thumb{transition:none}}
+
+/* Legibilidad del menú y selección de fotos */
+@media(max-width:590px){
+ .menu-grid{grid-template-columns:minmax(0,1fr)!important;max-width:440px;margin-left:auto;margin-right:auto;gap:16px}
+ .product-art{height:210px!important}
+ .card-body{padding:16px!important}
+ .card-title-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;align-items:start!important;gap:7px!important}
+ .card-title-row h3{min-width:0!important;line-height:1.2}
+ .card-title-row h3 button{display:block;font-size:22px!important;line-height:1.2!important;white-space:normal!important;overflow-wrap:anywhere}
+ .card-title-row>b{display:block!important;white-space:normal!important;font-size:16px!important;line-height:1.35}
+ .ves-equivalent{font-size:10px!important;line-height:1.5!important;overflow-wrap:anywhere}
+ .add-btn{min-height:46px!important;font-size:12px!important}
+}
+@media(min-width:591px) and (max-width:850px){.menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.card-title-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:6px!important}.card-title-row>b{white-space:normal!important}.ves-equivalent{font-size:9px!important}}
+.ingredients-block ul{grid-template-columns:minmax(0,1fr)!important;gap:9px!important;margin:0!important;padding:0 0 0 2px!important}
+.ingredients-block li{display:flex!important;align-items:flex-start!important;gap:11px!important;padding:12px 13px!important;border-radius:5px!important;font-size:13px!important;line-height:1.6!important;overflow-wrap:anywhere!important}
+.ingredients-block li:before{content:""!important;flex:0 0 7px!important;width:7px!important;height:7px!important;margin:8px 0 0!important;border-radius:50%!important;background:#ba684c!important}
+.ingredients-block .ingredient-ellipsis{display:block!important;grid-column:auto!important;letter-spacing:.12em}
+.photo-field{gap:10px!important}
+.photo-field>legend{margin-bottom:4px!important;font-size:12px!important}
+.photo-field .image-picker{position:relative;display:flex!important;align-items:center!important;gap:12px!important;min-height:82px!important;padding:13px!important;border:1px solid #dbe5da!important;border-radius:9px!important;background:linear-gradient(135deg,#fbfcf8,#f4f7f0)!important;color:#315744!important;cursor:pointer!important;transition:border-color .18s,background .18s,transform .18s!important}
+.photo-field .image-picker:hover{border-color:#98b39b!important;background:#f1f6ed!important;transform:translateY(-1px)!important}
+.photo-field .image-picker:focus-within{outline:3px solid #c79243!important;outline-offset:2px!important}
+.photo-field .image-picker input[type=file]{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;clip-path:inset(50%)!important;border:0!important}
+.image-picker-icon{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border-radius:11px;background:#e4eee1;color:#315744}
+.image-picker-icon svg{width:19px;height:19px;stroke-width:1.8}
+.image-picker-copy{display:grid;gap:4px;min-width:0;flex:1}
+.image-picker-copy b{font-size:12px;color:#294b38}
+.image-picker-copy small{font-size:10px;line-height:1.45;color:#738277;font-weight:400}
+.image-picker-action{flex:0 0 auto;padding:8px 10px;border:1px solid #c8d8c5;border-radius:5px;background:#fff;color:#315744;font-size:10px;font-weight:700}
+.photo-picker-hint{margin:-3px 0 2px;color:#738277;font-size:10px;line-height:1.55}
+@media(max-width:420px){.photo-field .image-picker{gap:9px;padding:10px}.image-picker-icon{flex-basis:36px;width:36px;height:36px}.image-picker-copy b{font-size:11px}.image-picker-copy small{font-size:9px}.image-picker-action{font-size:9px;padding:7px 8px}}
