@@ -303,3 +303,35 @@ input:focus,input:focus-visible,textarea:focus,textarea:focus-visible,select:foc
 @keyframes noglimar-ambient-in{from{clip-path:ellipse(0 0 at 48% 52%);transform:rotate(-15deg) scale(.94)}to{clip-path:ellipse(50% 50% at 50% 50%);transform:rotate(-15deg) scale(1)}}
 @keyframes noglimar-viewer-in{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
 @media(prefers-reduced-motion:reduce){.hero-copy,.hero-visual .brand-hero-logo,.hero-visual .hero-blob,.photo-viewer[open] .viewer-frame{animation:none!important}.drink-category-card:active,.meal-filter:active,.button-dark:active,.add-btn:active,.product-photo-thumb:active,.ingredients-more:active{transform:none}}
+
+/* A more ownable, food-first opening for Noglimar. */
+.hero{max-width:none;min-height:min(680px,calc(100svh - 118px));grid-template-columns:minmax(0,.92fr) minmax(440px,1.08fr);gap:clamp(28px,6vw,90px);padding:clamp(54px,8vw,112px) max(calc((100% - 1260px)/2),6.5%) 64px;background:#173d32;color:#fff8eb;isolation:isolate}
+.hero::before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 73% 42%,#38624c 0%,#254b3c 26%,transparent 57%),linear-gradient(112deg,#173d32 0%,#173d32 52%,#1c4435 100%)}
+.hero-copy{padding:0 0 12px;color:#fff8eb}
+.hero .eyebrow{color:#d3ddca;font-size:10px;letter-spacing:.15em}
+.hero .eyebrow>span:first-child{color:#e6bf72}
+.hero .brand-tagline{font-size:14px;color:#e5c47d;font-weight:600;letter-spacing:.015em;margin:26px 0 0}
+.hero h1{max-width:660px;color:#fff8eb;font-size:clamp(56px,7.1vw,98px);line-height:.99;letter-spacing:-.052em;margin:16px 0 22px}
+.hero h1 em{color:#e8c67d;font-style:normal;font-weight:500}
+.hero-copy>p:not(.brand-tagline){max-width:410px;color:#e0e7dc;font-size:15px;line-height:1.75;margin:0 0 30px}
+.hero .button-dark{min-height:52px;padding:0 23px;gap:34px;border-radius:3px;background:#f0d18b;color:#203a2e;font-size:12px;box-shadow:0 12px 32px #081e1538;transition:background .2s,transform .2s,box-shadow .2s}
+.hero .button-dark:hover{background:#ffe3a3;color:#18352a;transform:translateY(-2px);box-shadow:0 17px 38px #081e1550}
+.hero-food-frame{height:clamp(380px,43vw,540px);min-height:0;margin:0;overflow:visible;isolation:isolate;display:block}
+.hero-food-frame::before{content:"";position:absolute;z-index:-1;inset:16px -16px -16px 16px;border:1px solid #e6c67d99;pointer-events:none}
+.hero-food-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 56%,#102d24c9 100%);pointer-events:none}
+.hero-food-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 54%;filter:saturate(.93) contrast(1.025);clip-path:inset(0 0 0 0 round 2px);box-shadow:0 35px 95px #081b154d}
+.hero-photo-caption{position:absolute;z-index:1;left:24px;right:24px;bottom:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;color:#fff8eb;font-size:11px;font-weight:600;letter-spacing:.06em}
+.hero-photo-caption span:last-child{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#e7d7b6}
+.hero-bottom{left:max(calc((100% - 1260px)/2),6.5%);right:max(calc((100% - 1260px)/2),6.5%);color:#c8d5c6;font-size:8px}
+.hero-bottom span:last-child{color:#e6c77e}
+@media(prefers-reduced-motion:no-preference){
+ .hero-food-photo{animation:food-reveal .95s cubic-bezier(.16,1,.3,1) both}
+ .hero .eyebrow,.hero .brand-tagline,.hero h1,.hero-copy>p:not(.brand-tagline),.hero .button-dark{animation:hero-copy-reveal .62s cubic-bezier(.16,1,.3,1) both}
+ .hero .brand-tagline{animation-delay:.07s}.hero h1{animation-delay:.13s}.hero-copy>p:not(.brand-tagline){animation-delay:.19s}.hero .button-dark{animation-delay:.24s}
+ .hero .button-dark i{transition:transform .22s cubic-bezier(.16,1,.3,1)}.hero .button-dark:hover i{transform:translateY(3px)}
+}
+@keyframes food-reveal{from{clip-path:inset(0 0 0 100%);filter:saturate(.7) contrast(1)}to{clip-path:inset(0 0 0 0);filter:saturate(.93) contrast(1.025)}}
+@keyframes hero-copy-reveal{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:820px){.hero{min-height:0;grid-template-columns:minmax(0,1fr) minmax(280px,.86fr);gap:28px;padding:64px 6% 58px}.hero h1{font-size:clamp(52px,8vw,76px)}.hero-food-frame{height:clamp(330px,55vw,450px)}}
+@media(max-width:620px){.hero{display:flex;flex-direction:column;align-items:stretch;gap:30px;padding:42px 6% 54px}.hero-copy{padding-bottom:0}.hero .brand-tagline{margin-top:20px;font-size:12px}.hero h1{font-size:clamp(49px,13vw,66px);margin:14px 0 17px}.hero-copy>p:not(.brand-tagline){font-size:13px;max-width:360px;margin-bottom:22px}.hero .button-dark{min-height:48px}.hero-food-frame{height:clamp(300px,83vw,420px);width:calc(100% - 12px);margin:0 0 8px}.hero-food-frame::before{inset:12px -12px -12px 12px}.hero-photo-caption{left:16px;right:16px;bottom:16px;font-size:10px}.hero-bottom{left:6%;right:6%;bottom:13px;font-size:6px;letter-spacing:.09em}}
+@media(prefers-reduced-motion:reduce){.hero-food-photo,.hero .eyebrow,.hero .brand-tagline,.hero h1,.hero-copy>p:not(.brand-tagline),.hero .button-dark{animation:none!important}.hero .button-dark i{transition:none}}
