@@ -373,3 +373,17 @@ input:focus,input:focus-visible,textarea:focus,textarea:focus-visible,select:foc
 
 @media (prefers-reduced-motion:no-preference){.menu-card.touch-response{animation:catalog-touch .55s cubic-bezier(.16,1,.3,1) both!important}}
 @keyframes catalog-touch{0%{transform:perspective(900px) rotateX(0) scale(1)}35%{transform:perspective(900px) rotateX(5deg) rotateY(-2deg) scale(.97)}100%{transform:perspective(900px) rotateX(0) rotateY(0) scale(1)}}
+
+/* Scroll-linked depth: the catalog responds to native touch scrolling. */
+.menu-grid{perspective:1400px;perspective-origin:50% 50%;transform-style:preserve-3d}
+.menu-card{--scroll-progress:.5;--scroll-tilt:0deg;--scroll-depth:0px;--scroll-image-y:0px;--scroll-scale:1;--pointer-rx:0deg;--pointer-ry:0deg;--shine-x:50%;--shine-y:50%;transform:perspective(1000px) rotateX(calc(var(--scroll-tilt) + var(--pointer-rx))) rotateY(var(--pointer-ry)) scale(var(--scroll-scale));transform-style:preserve-3d;will-change:transform}
+.menu-card::after{background:radial-gradient(400px circle at var(--shine-x) var(--shine-y),#fff9d133,transparent 58%)}
+.menu-card.catalog-scroll-ready{transition:box-shadow .3s,border-color .3s}
+.menu-card .product-art{transform:translateZ(calc(12px + var(--scroll-depth)));transform-style:preserve-3d}
+.menu-card .product-art img{transform:translate3d(0,var(--scroll-image-y),0) scale(1.13);transition:filter .3s,transform .12s linear;will-change:transform}
+.menu-card .meal-stamp{transform:translate3d(0,0,calc(28px + var(--scroll-depth)))}
+.menu-card .card-body{transform:translateZ(calc(9px + var(--scroll-depth)*.55))}
+.menu-card.card-tilting{z-index:2;border-color:#b8cdb5;box-shadow:0 20px 44px #16382b1f,0 5px 13px #16382b0d}
+.menu-card.card-tilting .product-art img{filter:saturate(1.07) contrast(1.02)}
+@media(prefers-reduced-motion:reduce){.menu-grid{perspective:none}.menu-card,.menu-card .product-art,.menu-card .product-art img,.menu-card .meal-stamp,.menu-card .card-body{transform:none!important;transition:none!important;filter:none!important;animation:none!important;will-change:auto!important}.menu-card::after{display:none}}
+@media(max-width:700px){.menu-grid{perspective:1050px;perspective-origin:50% 50%;gap:17px}.menu-card{border-radius:10px;box-shadow:0 8px 23px #1c382216;transform:perspective(900px) rotateX(var(--scroll-tilt)) scale(var(--scroll-scale));}.menu-card .product-art{transform:translateZ(calc(8px + var(--scroll-depth)*.6));}.menu-card .product-art img{transform:translate3d(0,var(--scroll-image-y),0) scale(1.16);}.menu-card .card-body{transform:translateZ(5px)}.menu-card .meal-stamp{transform:translateZ(18px)}.menu-card.card-tilting{box-shadow:0 12px 28px #16382b1b}.menu-card.card-tilting .product-art img{transform:translate3d(0,var(--scroll-image-y),0) scale(1.2)}}
